@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'dropsync'
 
-unless ARGV.count == 2
+unless ARGV.count >= 2
 	puts '--- DropSync ---'
 	puts 'Oops! No input arguments.'
 	puts "\n> Enter your access token and filename, like so:"
@@ -10,7 +10,7 @@ unless ARGV.count == 2
 	exit
 end
 
-access_token, filename = ARGV[0], ARGV[1]
+access_token, filename, verbose = ARGV[0], ARGV[1], ARGV[2]
 
 drop_sync = DropSync::Engine.new(access_token)
-drop_sync.download(filename)
+drop_sync.download(filename, verbose)

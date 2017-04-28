@@ -5,11 +5,11 @@ module DropSync
             @client = DropboxClient.new(access_token)
         end
 
-        def download(filename)
+        def download(filename, verbose)
             puts "> Searching for #{filename}"
             url = get_url(filename)
             puts '> Downloading file'
-            Mecha.automatic_download(filename, url)
+            Mecha.automatic_download(filename, url, verbose)
             puts '> Download finished!'
             logout
         end
